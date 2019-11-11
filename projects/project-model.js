@@ -10,13 +10,14 @@ module.exports = {
 
 function findProjects(){
     return db ('projects')
-    .then(project => {
+    .then(projects => {
         const convert = []
 
-        Projects.foreEach(inProject => {
+        projects.forEach(inProject => {
             inProject.completed === 1 ? inProject.completed = true : inProject.completed = false
             convert.push(inProject)
-        })
+        }
+        )
         return convert
     });
 }
